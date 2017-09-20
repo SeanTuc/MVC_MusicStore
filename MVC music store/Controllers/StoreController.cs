@@ -19,7 +19,7 @@ namespace MVC_music_store.Controllers
                 genres.Add(new Genre { Name = "Genre " + i });
             }
 
-            ViewBag.genres = genres;
+            // ViewBag.genres = genres;
             ViewBag.Message = "Please select a Genre";
             return View(genres);
         }
