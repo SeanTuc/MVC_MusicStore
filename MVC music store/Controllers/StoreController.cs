@@ -12,22 +12,23 @@ namespace MVC_music_store.Controllers
         // GET: Store
         public ActionResult Index()
         {
-            // mock up some album data and pass to the view
+            // mock up some up genre data and pass that to the view
             var genres = new List<Genre>();
-            for (int i = 0; i<= 10; i++)
+            for (int i = 0; i <= 10; i++)
             {
-                genres.Add(new Genre { Name = "Genre" + i });
+                genres.Add(new Genre { Name = "Genre " + i });
             }
 
-
             ViewBag.genres = genres;
-            ViewBag.Message = "please select a Genre";
+            ViewBag.Message = "Please select a Genre";
             return View();
         }
+
         // GET: Store/Browse
         public ActionResult Browse(string genre)
         {
-            // Send Genre back to the view
+
+            // Send genre back to the View
             ViewBag.Genre = genre;
             return View();
         }
