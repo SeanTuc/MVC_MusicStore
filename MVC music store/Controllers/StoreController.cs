@@ -21,7 +21,7 @@ namespace MVC_music_store.Controllers
 
             ViewBag.genres = genres;
             ViewBag.Message = "Please select a Genre";
-            return View();
+            return View(genres);
         }
 
         // GET: Store/Browse
