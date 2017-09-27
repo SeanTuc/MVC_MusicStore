@@ -37,9 +37,13 @@ namespace MVC_music_store.Controllers
         public ActionResult Browse(string genre)
         {
 
+            
+            // use album model to display the related albums
+            var selectedGenre = db.Genres.Include("Albums")
+                .Single(g => g.Name == genre);
             // Send genre back to the View
             ViewBag.Genre = genre;
-            return View();
+            return View(selectedGenre);
         }
     }
 }
