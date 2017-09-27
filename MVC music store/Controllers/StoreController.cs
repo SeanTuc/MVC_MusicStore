@@ -9,17 +9,26 @@ namespace MVC_music_store.Controllers
 {
     public class StoreController : Controller
     {
+        // add db connection
+        MusicStoreModel db = new MusicStoreModel();
+
         // GET: Store
         public ActionResult Index()
         {
             // mock up some up genre data and pass that to the view
-            var genres = new List<Genre>();
-            for (int i = 0; i <= 10; i++)
-            {
-                genres.Add(new Genre { Name = "Genre " + i });
-            }
+            //var genres = new List<Genre>();
+            //for (int i = 0; i <= 10; i++)
+            //{
+            //    genres.Add(new Genre { Name = "Genre " + i });
+            //}
 
             // ViewBag.genres = genres;
+
+            // use the connection and Genre model to query the Genre table
+            var genres = from g in db.Genres
+                         orderby g.Name ascending
+                         select g;
+
             ViewBag.Message = "Please select a Genre";
             return View(genres);
         }
