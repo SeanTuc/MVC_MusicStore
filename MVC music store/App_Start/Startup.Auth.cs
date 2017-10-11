@@ -11,6 +11,7 @@ using System.Configuration;
 
 namespace MVC_music_store
 {
+    {
     public partial class Startup
     {
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
@@ -47,9 +48,10 @@ namespace MVC_music_store
             // This is similar to the RememberMe option when you log in.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
+            // Uncomment the following lines to enable logging in with third party login providers
             app.UseMicrosoftAccountAuthentication(
-                            clientId: ConfigurationManager.AppSettings["MicrosoftClientID"],
-                            clientSecret: ConfigurationManager.AppSettings["MicrosoftClientSecret"]);
+                clientId: ConfigurationManager.AppSettings["MicrosoftClientID"],
+                clientSecret: ConfigurationManager.AppSettings["MicrosoftClientSecret"]);
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
