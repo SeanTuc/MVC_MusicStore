@@ -15,11 +15,13 @@ namespace MVC_music_store.Models
             Carts = new HashSet<Cart>();
             OrderDetails = new HashSet<OrderDetail>();
         }
-
+        [Display(Name = "Album")]
         public int AlbumId { get; set; }
 
+        [Display(Name = "Genre")]
         public int GenreId { get; set; }
 
+        [Display(Name ="Artist")]
         public int ArtistId { get; set; }
 
         [Required]
@@ -27,9 +29,12 @@ namespace MVC_music_store.Models
         public string Title { get; set; }
 
         [Column(TypeName = "numeric")]
+        [DisplayFormat(DataFormatString ="{0:c}")]
+        [Range(0.0, 100, ErrorMessage = "Price must be between $0.01 and $100")]
         public decimal Price { get; set; }
 
         [StringLength(1024)]
+        [Display(Name = "Album Cover")]
         public string AlbumArtUrl { get; set; }
 
         public virtual Artist Artist { get; set; }
